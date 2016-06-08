@@ -13,8 +13,8 @@ RUN chmod -R a+x /create-osb-domain.py /root/Oracle/Middleware/Oracle_OSB1/commo
 
 RUN /root/Oracle/Middleware/Oracle_OSB1/common/bin/wlst.sh -skipWLSModuleScanning /create-osb-domain.py
 
-RUN sed -i "s/WLS_USER=\"\"/WLS_USER=\"weblogic\"/" $WLDOMAIN_HOME/bin/startManagedWebLogic.sh && \
-    sed -i "s/WLS_PW=\"\"/WLS_PW=\"Oracle@123\"/" $WLDOMAIN_HOME/bin/startManagedWebLogic.sh
+RUN sed -i "s/WLS_USER=\"\"/WLS_USER=\"weblogic\"/" /root/Oracle/Middleware/user_projects/domains/osb_domain/bin/startManagedWebLogic.sh && \
+    sed -i "s/WLS_PW=\"\"/WLS_PW=\"Oracle@123\"/" /root/Oracle/Middleware/user_projects/domains/osb_domain/bin/startManagedWebLogic.sh
 
 # Expose Node Manager default port, and also default http/https ports for admin console
 EXPOSE 7001 8001 5556 8453 36963
