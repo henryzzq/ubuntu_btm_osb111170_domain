@@ -17,7 +17,8 @@ RUN wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=0
 
 RUN chmod -R a+x /startWL_DB.sh /create-osb-domain.py /root/Oracle/Middleware/Oracle_OSB1/common/bin
 
-RUN mv /startWL_DB.sh /util
+RUN mkdir -p /util && \
+    mv /startWL_DB.sh /util
 
 RUN /root/Oracle/Middleware/Oracle_OSB1/common/bin/wlst.sh -skipWLSModuleScanning /create-osb-domain.py
 
